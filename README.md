@@ -113,10 +113,11 @@ const response = await fetch('https://api.apiverve.com/v1/profanityfilter', {
   "status": "ok",
   "error": null,
   "data": {
-    "filteredText": "What the **** is going on?",
-    "hasProfanity": true,
-    "profanityCount": 1,
-    "profanityWords": ["****"]
+    "isProfane": true,
+    "filteredText": "Today is so **** hot! Why the **** would anyone go outside?",
+    "mask": "*",
+    "trimmed": false,
+    "profaneWords": 2
   }
 }
 ```
