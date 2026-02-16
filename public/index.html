@@ -290,12 +290,12 @@
 
     function showResult(data) {
       document.getElementById('result-text').textContent = data.filtered;
-      document.getElementById('count-value').textContent = data.profanityCount;
+      document.getElementById('count-value').textContent = data.profaneWords;
 
       const statusStat = document.getElementById('status-stat');
       const statusValue = document.getElementById('status-value');
 
-      if (data.hasProfanity) {
+      if (data.isProfane) {
         statusStat.className = 'stat flagged';
         statusValue.textContent = 'Flagged';
       } else {
@@ -303,15 +303,8 @@
         statusValue.textContent = 'Clean';
       }
 
-      const wordsFound = document.getElementById('words-found');
-      const wordsList = document.getElementById('words-list');
-
-      if (data.words && data.words.length > 0) {
-        wordsList.innerHTML = data.words.map(w => `<span>${w}</span>`).join('');
-        wordsFound.style.display = 'block';
-      } else {
-        wordsFound.style.display = 'none';
-      }
+      // Hide words list since API returns count only
+      document.getElementById('words-found').style.display = 'none';
 
       document.getElementById('result').classList.add('show');
     }
