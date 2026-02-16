@@ -51,9 +51,9 @@ app.post('/api/moderate', async (req, res) => {
         success: true,
         original: text,
         filtered: data.data.filteredText,
-        hasProfanity: data.data.hasProfanity,
-        profanityCount: data.data.profanityCount || 0,
-        words: data.data.profanityWords || []
+        isProfane: data.data.isProfane,
+        profaneWords: data.data.profaneWords || 0,
+        mask: data.data.mask
       });
     } else {
       res.status(400).json({ error: data.error || 'Moderation failed' });
